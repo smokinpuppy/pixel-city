@@ -11,6 +11,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
             <string>AvenirNext-DemiBold</string>
         </array>
     </customFonts>
@@ -122,12 +123,21 @@
                                     <constraint firstAttribute="width" constant="200" id="gj6-aW-tgC"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7O9-Yd-SuU">
+                                <rect key="frame" x="16" y="43" width="0.0" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="7O9-Yd-SuU" firstAttribute="top" secondItem="YYI-gg-Jj8" secondAttribute="top" constant="23" id="5Sb-rD-Vyf"/>
                             <constraint firstItem="4Am-4F-YW0" firstAttribute="trailing" secondItem="YYI-gg-Jj8" secondAttribute="trailing" id="A2I-z5-nRs"/>
                             <constraint firstItem="4Am-4F-YW0" firstAttribute="top" secondItem="YYI-gg-Jj8" secondAttribute="top" id="Mud-hH-qPf"/>
                             <constraint firstItem="zvr-ct-qo2" firstAttribute="centerX" secondItem="cqu-6H-Mly" secondAttribute="centerX" id="Mzr-M2-ear"/>
+                            <constraint firstItem="7O9-Yd-SuU" firstAttribute="leading" secondItem="YYI-gg-Jj8" secondAttribute="leading" constant="16" id="SGE-ds-jQx"/>
                             <constraint firstItem="YYI-gg-Jj8" firstAttribute="bottom" secondItem="zvr-ct-qo2" secondAttribute="bottom" constant="20" id="Z4W-TG-rtw"/>
                             <constraint firstItem="4Am-4F-YW0" firstAttribute="leading" secondItem="YYI-gg-Jj8" secondAttribute="leading" id="mpB-9S-ijA"/>
                             <constraint firstItem="4Am-4F-YW0" firstAttribute="bottom" secondItem="YYI-gg-Jj8" secondAttribute="bottom" id="vRS-jQ-84J"/>
@@ -136,6 +146,7 @@
                     </view>
                     <connections>
                         <outlet property="popImageView" destination="4Am-4F-YW0" id="9Du-Wm-hnm"/>
+                        <outlet property="titleLbl" destination="7O9-Yd-SuU" id="4v9-Ya-wpy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ns-6d-7qz" userLabel="First Responder" sceneMemberID="firstResponder"/>

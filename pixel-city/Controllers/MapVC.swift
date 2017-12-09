@@ -30,6 +30,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
     var imageUrlArray = [String]()
     var imageArray = [UIImage]()
+    var imageTitleArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,6 +193,12 @@ extension MapVC: MKMapViewDelegate {
                 for photo in photosDictArray {
                     let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_h_d.jpg"
                     self.imageUrlArray.append(postUrl)
+                    if photo["title"] != nil{
+                        guard let imageTitle = photo["title"] else { return }
+                        self.imageTitleArray.append(imageTitle as! String)
+                    } else {
+                        self.imageTitleArray.append("No Title")
+                    }
                 }
                 handler(true)
             } else {
@@ -258,7 +265,7 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else { return }
-        popVC.initData(forImage: imageArray[indexPath.row])
+        popVC.initData(forImage: imageArray[indexPath.row], forTitle: imageTitleArray[indexPath.row])
         present(popVC, animated: true, completion: nil)
     }
 }
@@ -268,7 +275,7 @@ extension MapVC: UIViewControllerPreviewingDelegate {
         guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else { return nil}
         
         guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else { return nil }
-        popVC.initData(forImage: imageArray[indexPath.row])
+        popVC.initData(forImage: imageArray[indexPath.row], forTitle: imageTitleArray[indexPath.row])
         
         previewingContext.sourceRect = cell.contentView.frame
         return popVC
